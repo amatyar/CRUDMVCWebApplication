@@ -1,0 +1,47 @@
+﻿@model CRUDMVCWebApplication.Models.Employee
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                    @Html.LabelFor(s => s.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="FirstName" name="FirstName" type="text" value="" />
+                    @Html.LabelFor(s => s.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="LastName" name="LastName" type="text" value="" />
+                    @Html.LabelFor(s => s.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="EmailId" name="EmailId" type="text" value="" />
+                    @Html.LabelFor(s => s.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="Address" name="Address" type="text" value="" />
+                    @Html.LabelFor(s => s.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="PhoneNumber" name="PhoneNumber" type="text" value="" />
+                    @Html.LabelFor(s => s.Department, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input class="form-control" id="Department" name="Department" type="text" value="" />
+                    .
+            </div>
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
